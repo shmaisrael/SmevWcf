@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://smev.gosuslugi.ru/rev020415" elementFormDefault="qualified" targetNamespace="http://smev.gosuslugi.ru/rev020415" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Message" type="tns:MessageType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MessageData" type="tns:MessageDataType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="MessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Sender" type="tns:SenderType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Recipient" type="tns:RecipientType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Originator" type="tns:OriginatorType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Service" type="tns:ServiceType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TypeCode" type="tns:TypeCodeType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RequestIdRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OriginRequestIdRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CaseNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ExchangeType" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TestMsg" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OKTMO" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SubMessage" type="tns:ArrayOfSubMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SenderType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RecipientType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OriginatorType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServiceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Mnemonic" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TypeCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GSRV" />
+      <xs:enumeration value="GFNC" />
+      <xs:enumeration value="OTHR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCEPT" />
+      <xs:enumeration value="CANCEL" />
+      <xs:enumeration value="FAILURE" />
+      <xs:enumeration value="INVALID" />
+      <xs:enumeration value="NOTIFY" />
+      <xs:enumeration value="PACKET" />
+      <xs:enumeration value="PING" />
+      <xs:enumeration value="PROCESS" />
+      <xs:enumeration value="REJECT" />
+      <xs:enumeration value="REQUEST" />
+      <xs:enumeration value="RESULT" />
+      <xs:enumeration value="STATE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfSubMessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubMessageType" nillable="true" type="tns:SubMessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SubMessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubRequestNumber" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Originator" type="tns:OriginatorType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OriginRequestIdRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RequestIdRef" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CaseNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessageDataType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AppData" type="tns:AppDataType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AppDocument" type="tns:AppDocumentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AppDataType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Request" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Result" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AppDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RequestCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfAnyType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ItemsElementName" type="tns:ArrayOfItemsChoiceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAnyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfItemsChoiceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemsChoiceType" type="tns:ItemsChoiceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ItemsChoiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BinaryData" />
+      <xs:enumeration value="DigestValue" />
+      <xs:enumeration value="Reference" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Message" type="tns:MessageType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MessageData" type="tns:MessageDataType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

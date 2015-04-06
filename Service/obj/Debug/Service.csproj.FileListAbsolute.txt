@@ -1,0 +1,7 @@
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\bin\Debug\Service.exe
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\bin\Debug\Service.pdb
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\bin\Debug\Library.dll
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\bin\Debug\Library.pdb
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\obj\Debug\Service.exe
+C:\Users\Шма\Documents\Visual Studio 2013\Projects\Final\SmevWcf\Service\obj\Debug\Service.pdb
