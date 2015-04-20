@@ -76,8 +76,7 @@ namespace Client
             // Request to service
             Request requestData = FormRequest("Requset test data");
             client.GetData(ref requestData.Message, ref requestData.MessageData);
-            Console.WriteLine("Запрос отправлен.");
-            Console.WriteLine("Нажмите <ENTER> для завершения клиента.");
+            Console.WriteLine("Press <ENTER> to stop client.");
             Console.ReadLine();
         }
     }
