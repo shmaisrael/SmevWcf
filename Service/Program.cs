@@ -39,8 +39,7 @@ namespace Service
             // Start service
             selfHost.Open();
 
-            Console.WriteLine("Сервис готов.");
-            Console.WriteLine("Нажмите <ENTER> для завершения сервиса.");
+            Console.WriteLine("Press <ENTER> to stop service.");
             Console.ReadLine();
             selfHost.Close();
         }
